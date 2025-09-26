@@ -1,4 +1,4 @@
-// Last updated: 9/26/2025, 7:26:02 PM
+// Last updated: 9/26/2025, 7:35:39 PM
 class Solution {
     public int[] searchRange(int[] nums, int target) {
         return new int[]{first(nums,target),last(nums,target)};
