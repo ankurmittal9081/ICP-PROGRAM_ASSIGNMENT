@@ -1,28 +1,22 @@
-// Last updated: 9/29/2025, 5:15:07 PM
+// Last updated: 9/29/2025, 5:19:11 PM
 class Solution {
     public boolean searchMatrix(int[][] arr, int target) {
         int n=arr.length;
         int m=arr[0].length;
-        
-        int ans[]=new int[n*m];
-        int p=0;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                ans[p++]=arr[i][j];
-            }
-        }
     
-        return solve(ans,target);
+        return solve(arr,target,n,m);
     }
-    public boolean  solve(int arr[],int k){
+    public boolean  solve(int arr[][],int k,int n,int m){
         int l=0;
-        int r=arr.length-1;
+        int r=n*m-1;
         while(l<=r){
             int mid=l+(r-l)/2;
-            if(arr[mid]==k){
+            int row=mid/m;
+            int col=mid%m;
+            if(arr[row][col]==k){
                 return true;
             }
-            else if(arr[mid]>k){
+            else if(arr[row][col]>k){
                 r=mid-1;
             }
             else{
